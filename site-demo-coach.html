@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Léa Fontaine — Coach de vie & Thérapeute</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sage:#5c7a5c;
+  --sage-clair:#a8c4a8;
+  --creme:#faf7f2;
+  --creme2:#f2ede4;
+  --brun:#3d2e1e;
+  --brun-clair:#8a7060;
+  --texte:#5a4e42;
+  --blanc:#ffffff;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--creme);color:var(--texte);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(92,122,92,.1);}
+.logo{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--brun);letter-spacing:.05em;}
+.logo em{font-style:italic;color:var(--sage);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brun-clair);text-decoration:none;transition:color .3s;}
+.nav-links a:hover{color:var(--sage);}
+.nav-cta{padding:12px 28px;background:var(--sage);color:var(--blanc);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:background .3s;}
+.nav-cta:hover{background:var(--brun);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:90px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;position:relative;}
+.hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:var(--creme2);z-index:0;}
+.hero-left{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:80px 60px;}
+.hero-wave{position:absolute;top:20%;left:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(168,196,168,.15),transparent 70%);pointer-events:none;}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:24px;opacity:0;animation:rise 1s .2s forwards;}
+.hero-dot{width:6px;height:6px;background:var(--sage);border-radius:50%;}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.1;color:var(--brun);font-weight:300;margin-bottom:28px;opacity:0;animation:rise 1s .4s forwards;}
+h1 em{font-style:italic;color:var(--sage);}
+.hero-desc{font-size:1rem;line-height:1.9;color:var(--brun-clair);max-width:420px;margin-bottom:48px;opacity:0;animation:rise 1s .6s forwards;}
+.hero-btns{display:flex;gap:16px;align-items:center;opacity:0;animation:rise 1s .8s forwards;}
+.btn-sage{padding:16px 36px;background:var(--sage);color:var(--blanc);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;}
+.btn-sage:hover{background:var(--brun);transform:translateY(-2px);}
+.btn-outline{padding:16px 36px;border:1px solid rgba(92,122,92,.4);color:var(--sage);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;}
+.btn-outline:hover{border-color:var(--sage);background:rgba(92,122,92,.05);}
+.hero-right{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;padding:80px 60px;}
+.hero-portrait{width:380px;height:480px;background:linear-gradient(135deg,var(--sage-clair),var(--sage));border-radius:200px 200px 160px 160px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-portrait::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.1),transparent);}
+.portrait-emoji{font-size:7rem;position:relative;z-index:1;}
+.hero-badge{position:absolute;bottom:-20px;right:-20px;width:120px;height:120px;background:var(--brun);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.badge-num{font-family:'Fraunces',serif;font-size:1.8rem;color:var(--creme);font-weight:300;}
+.badge-text{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,242,.6);line-height:1.3;}
+.floating-card{position:absolute;top:40px;left:-40px;background:var(--blanc);padding:20px 24px;border-radius:16px;box-shadow:0 20px 60px rgba(61,46,30,.08);}
+.fc-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:6px;}
+.fc-val{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--brun);}
+
+/* APPROACH */
+.approach{padding:100px 60px;background:var(--blanc);}
+.approach-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+.approach-label{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;}
+.approach-inner h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);color:var(--brun);font-weight:300;line-height:1.2;}
+.approach-inner h2 em{font-style:italic;color:var(--sage);}
+.approach-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.ap-card{background:var(--creme);padding:36px;border-radius:20px;border:1px solid rgba(92,122,92,.1);transition:all .3s;}
+.ap-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(61,46,30,.06);}
+.ap-icon{font-size:2rem;margin-bottom:16px;display:block;}
+.ap-title{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--brun);font-weight:300;margin-bottom:10px;}
+.ap-desc{font-size:.875rem;color:var(--brun-clair);line-height:1.8;}
+
+/* OFFERS */
+.offers{padding:100px 60px;background:var(--creme2);}
+.offers-header{text-align:center;margin-bottom:60px;}
+.offers-header h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);color:var(--brun);font-weight:300;margin-top:12px;}
+.offers-header h2 em{font-style:italic;color:var(--sage);}
+.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto;}
+.offer-card{background:var(--blanc);padding:48px 36px;border-radius:24px;text-align:center;position:relative;transition:all .3s;border:2px solid transparent;}
+.offer-card.featured{border-color:var(--sage);background:var(--sage);}
+.offer-card.featured *{color:var(--blanc)!important;}
+.offer-card.featured .offer-btn{background:var(--blanc);color:var(--sage)!important;}
+.offer-card:hover:not(.featured){transform:translateY(-4px);box-shadow:0 24px 48px rgba(61,46,30,.08);}
+.offer-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--brun);color:var(--creme);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;padding:6px 20px;border-radius:100px;white-space:nowrap;}
+.offer-name{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--brun);font-weight:300;margin-bottom:8px;}
+.offer-price{font-family:'Fraunces',serif;font-size:2.5rem;color:var(--sage);font-weight:300;margin:20px 0 4px;}
+.offer-period{font-size:.8rem;color:var(--brun-clair);margin-bottom:28px;}
+.offer-features{list-style:none;margin-bottom:36px;text-align:left;}
+.offer-features li{font-size:.875rem;color:var(--texte);padding:10px 0;border-bottom:1px solid rgba(92,122,92,.08);display:flex;align-items:center;gap:10px;}
+.offer-features li::before{content:'✓';color:var(--sage);font-size:.8rem;}
+.offer-btn{display:block;padding:14px;background:var(--sage);color:var(--blanc);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;}
+.offer-btn:hover{opacity:.85;}
+
+/* TESTIMONIALS */
+.testimonials{padding:100px 60px;background:var(--brun);}
+.test-header{text-align:center;margin-bottom:60px;}
+.test-label{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-clair);margin-bottom:12px;}
+.test-header h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);color:var(--creme);font-weight:300;}
+.test-header h2 em{font-style:italic;color:var(--sage-clair);}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;}
+.test-card{background:rgba(255,255,255,.05);padding:40px;border-radius:20px;border:1px solid rgba(255,255,255,.06);}
+.stars{color:var(--sage-clair);font-size:1rem;letter-spacing:.2em;margin-bottom:20px;}
+.test-quote{font-family:'Fraunces',serif;font-size:1rem;font-style:italic;color:rgba(250,247,242,.8);line-height:1.8;margin-bottom:28px;}
+.test-author{display:flex;align-items:center;gap:14px;}
+.test-avatar{width:44px;height:44px;background:var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.test-name{font-size:.9rem;color:var(--creme);font-weight:400;}
+.test-role{font-size:.75rem;color:rgba(250,247,242,.4);margin-top:2px;}
+
+/* CTA */
+.cta{padding:100px 60px;text-align:center;background:var(--creme);}
+.cta h2{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,4rem);color:var(--brun);font-weight:300;margin:12px 0 20px;line-height:1.1;}
+.cta h2 em{font-style:italic;color:var(--sage);}
+.cta p{font-size:1rem;color:var(--brun-clair);max-width:480px;margin:0 auto 40px;line-height:1.8;}
+
+/* FOOTER */
+footer{background:var(--brun);padding:60px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;}
+.f-logo{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--creme);margin-bottom:12px;}
+.f-logo em{font-style:italic;color:var(--sage-clair);}
+.f-sub{font-size:.85rem;color:rgba(250,247,242,.4);line-height:1.7;}
+.f-title{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-clair);margin-bottom:18px;}
+.f-col p,.f-col a{font-size:.875rem;color:rgba(250,247,242,.5);line-height:1.9;text-decoration:none;display:block;transition:color .3s;}
+.f-col a:hover{color:var(--sage-clair);}
+.f-bottom{background:rgba(0,0,0,.2);padding:20px 60px;display:flex;justify-content:space-between;}
+.f-bottom p{font-size:.75rem;color:rgba(250,247,242,.2);}
+
+@keyframes rise{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){nav{padding:16px 20px;}.nav-links{display:none;}.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:60px 20px;}.approach,.offers,.testimonials,.cta{padding:60px 20px;}.approach-inner{grid-template-columns:1fr;gap:40px;}.approach-cards{grid-template-columns:1fr;}.offers-grid,.test-grid{grid-template-columns:1fr;}footer{grid-template-columns:1fr;padding:40px 20px;}.f-bottom{padding:20px;flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><em>Léa</em> Fontaine</div>
+  <ul class="nav-links">
+    <li><a href="#approach">Approche</a></li>
+    <li><a href="#offers">Séances</a></li>
+    <li><a href="#testimonials">Témoignages</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Première séance</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-wave"></div>
+    <div class="hero-tag"><div class="hero-dot"></div>Coach certifiée · Paris & Visio</div>
+    <h1>Retrouvez <em>l'élan</em><br>qui vous<br>appartient</h1>
+    <p class="hero-desc">J'accompagne les personnes qui se sentent bloquées, épuisées ou à un carrefour de leur vie — vers plus de clarté, de confiance et d'alignement.</p>
+    <div class="hero-btns">
+      <a href="#offers" class="btn-sage">Découvrir les séances</a>
+      <a href="#approach" class="btn-outline">Mon approche</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-portrait">
+      <span class="portrait-emoji">🌿</span>
+      <div class="hero-badge">
+        <span class="badge-num">8+</span>
+        <span class="badge-text">ans d'expérience</span>
+      </div>
+    </div>
+    <div class="floating-card">
+      <div class="fc-label">Prochaine dispo</div>
+      <div class="fc-val">Cette semaine ✓</div>
+    </div>
+  </div>
+</section>
+
+<section id="approach" class="approach">
+  <div class="approach-inner">
+    <div>
+      <div class="approach-label">Ma méthode</div>
+      <h2>Une approche <em>douce</em> et ancrée</h2>
+    </div>
+    <div class="approach-cards">
+      <div class="ap-card">
+        <span class="ap-icon">🌱</span>
+        <div class="ap-title">Écoute profonde</div>
+        <p class="ap-desc">Chaque séance commence par un espace de parole libre, sans jugement. Vous êtes entendu(e) dans votre entièreté.</p>
+      </div>
+      <div class="ap-card">
+        <span class="ap-icon">🧭</span>
+        <div class="ap-title">Clarification</div>
+        <p class="ap-desc">Ensemble, nous identifions ce qui vous freine vraiment — croyances, peurs, schémas répétitifs — et nous les regardons en face.</p>
+      </div>
+      <div class="ap-card">
+        <span class="ap-icon">⚡</span>
+        <div class="ap-title">Passage à l'action</div>
+        <p class="ap-desc">Chaque séance se termine avec des intentions concrètes. Le changement se construit pas à pas, dans la durée.</p>
+      </div>
+      <div class="ap-card">
+        <span class="ap-icon">🔁</span>
+        <div class="ap-title">Intégration</div>
+        <p class="ap-desc">Entre les séances, je reste disponible par message. Le suivi est continu, pas ponctuel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offers" class="offers">
+  <div class="offers-header">
+    <div class="approach-label">Tarifs</div>
+    <h2>Choisissez votre <em>rythme</em></h2>
+  </div>
+  <div class="offers-grid">
+    <div class="offer-card">
+      <div class="offer-name">Séance Découverte</div>
+      <div class="offer-price">0€</div>
+      <div class="offer-period">30 minutes · une fois</div>
+      <ul class="offer-features">
+        <li>Appel vidéo ou téléphone</li>
+        <li>Présentation mutuelle</li>
+        <li>Évaluation de vos besoins</li>
+        <li>Sans engagement</li>
+      </ul>
+      <a href="#contact" class="offer-btn">Réserver</a>
+    </div>
+    <div class="offer-card featured">
+      <div class="offer-badge">Le plus choisi</div>
+      <div class="offer-name">Accompagnement</div>
+      <div class="offer-price">320€</div>
+      <div class="offer-period">4 séances · 1h chacune</div>
+      <ul class="offer-features">
+        <li>4 séances d'1h en visio</li>
+        <li>Suivi WhatsApp entre séances</li>
+        <li>Exercices personnalisés</li>
+        <li>Bilan de fin de parcours</li>
+      </ul>
+      <a href="#contact" class="offer-btn">Commencer</a>
+    </div>
+    <div class="offer-card">
+      <div class="offer-name">Séance Unique</div>
+      <div class="offer-price">90€</div>
+      <div class="offer-period">1 heure · à la carte</div>
+      <ul class="offer-features">
+        <li>Séance individuelle d'1h</li>
+        <li>En visio ou à Paris</li>
+        <li>Compte-rendu écrit</li>
+        <li>Disponible sous 48h</li>
+      </ul>
+      <a href="#contact" class="offer-btn">Réserver</a>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div class="test-header">
+    <div class="test-label">Ce qu'ils disent</div>
+    <h2>Des <em>transformations</em> réelles</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-quote">"Après 3 mois d'accompagnement, j'ai enfin quitté un travail qui me rendait malheureuse. Je n'aurais pas eu le courage sans Léa."</p>
+      <div class="test-author">
+        <div class="test-avatar">👩</div>
+        <div>
+          <div class="test-name">Sophie M.</div>
+          <div class="test-role">Responsable marketing, 34 ans</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-quote">"Je me sentais complètement perdu après ma séparation. Léa m'a aidé à me retrouver et à reconstruire quelque chose de solide."</p>
+      <div class="test-author">
+        <div class="test-avatar">👨</div>
+        <div>
+          <div class="test-name">Thomas R.</div>
+          <div class="test-role">Ingénieur, 41 ans</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-quote">"Un accompagnement bienveillant et très concret. J'ai appris à m'écouter et à poser des limites. Ma vie a vraiment changé."</p>
+      <div class="test-author">
+        <div class="test-avatar">👩</div>
+        <div>
+          <div class="test-name">Claire D.</div>
+          <div class="test-role">Enseignante, 38 ans</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="approach-label">Premier pas</div>
+  <h2>Prête à<br>vous <em>accompagner</em></h2>
+  <p>La première séance est gratuite et sans engagement. C'est l'occasion de se rencontrer et de voir si nous sommes faites pour travailler ensemble.</p>
+  <a href="mailto:lea@leacoaching.fr" class="btn-sage" style="display:inline-block;">Prendre contact</a>
+</section>
+
+<footer>
+  <div>
+    <div class="f-logo"><em>Léa</em> Fontaine</div>
+    <p class="f-sub">Coach de vie certifiée ICF.<br>Paris & consultations en visio<br>partout en France.</p>
+  </div>
+  <div class="f-col">
+    <div class="f-title">Navigation</div>
+    <a href="#approach">Mon approche</a>
+    <a href="#offers">Séances & tarifs</a>
+    <a href="#testimonials">Témoignages</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="f-col">
+    <div class="f-title">Contact</div>
+    <p>Paris 9e & visio</p>
+    <a href="tel:+33678901234">06 78 90 12 34</a>
+    <a href="mailto:lea@leacoaching.fr">lea@leacoaching.fr</a>
+    <a href="#">Instagram</a>
+  </div>
+</footer>
+<div class="f-bottom">
+  <p>© 2024 Léa Fontaine Coaching — Tous droits réservés</p>
+  <p>Site réalisé avec soin</p>
+</div>
+</body>
+</html>
